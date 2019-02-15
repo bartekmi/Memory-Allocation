@@ -9,7 +9,7 @@ namespace peach {
 
         [TestMethod]
         public void TestSetGet() {
-            MemoryChunk chunk = new MemoryChunk(_manager, 1, 3);
+            AllocatedChunk chunk = new AllocatedChunk(_manager, 1, 3);
 
             // First element
             chunk.Set(0, 77);
@@ -22,7 +22,7 @@ namespace peach {
 
         [TestMethod]
         public void TestSetGetOutOfRange() {
-            MemoryChunk chunk = new MemoryChunk(_manager, 1, 3);
+            AllocatedChunk chunk = new AllocatedChunk(_manager, 1, 3);
 
             // Set
             try {

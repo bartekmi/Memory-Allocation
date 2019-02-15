@@ -49,7 +49,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="helpers\TreeTest.cs" />
     <Compile Include="MemoryChunkTest.cs" />
+    <Compile Include="MemoryManagerTortureTest.cs" />
     <Compile Include="MemoryManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

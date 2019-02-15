@@ -1,14 +1,13 @@
 ﻿
+using peach.helpers;
 
-internal class FreeChunk {
-    internal int Offset;
-    internal int Length;
+namespace peach {
+    internal class FreeChunk : BaseChunk, ISortOrder {
+        internal FreeChunk(int offset, int length) : base(offset, length) {
+            // Do nothing
+        }
 
-    // Derived Properties
-    internal int IndexAfter { get { return Offset + Length; } }  // Index just after this chunk
-
-    internal FreeChunk(int offset, int length) {
-        Offset = offset;
-        Length = length;
+        // Implements the ISortOrder interface and is needed by our Tree<T> implementation
+        public int OrderBy { get { return Length; } }
     }
 }

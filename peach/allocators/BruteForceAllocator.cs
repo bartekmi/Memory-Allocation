@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace peach.allocators {
-    // Next step would be to create a more clever allocator which used a tree structure to allow binary-
-    // searches for the sufficiently large chunk - O(N logN)
+
+    // The Brute-Force implementation has O(n) operations, where n is the number of Free Chunks.
     internal class BruteForceAllocator : IAllocatorUnitTests {
 
         private List<FreeChunk> _chunks = new List<FreeChunk>();
@@ -13,6 +13,7 @@ namespace peach.allocators {
             _chunks.Add(chunk);
         }
 
+        // This operation is O(N) in this brute-force implementation
         public FreeChunk FindSmallestFreeChunk(int minLength) {
             FreeChunk smallest = null;
 
@@ -29,14 +30,8 @@ namespace peach.allocators {
             _chunks.Remove(chunk);
         }
 
-        // This operation is O(N) in this brute-force implementation
-        public FreeChunk GetFreeChunkOnLeft(MemoryChunk allocated) {
-            return _chunks.SingleOrDefault(x => x.IndexAfter == allocated._offset);
-        }
-
-        // This operation is O(N) in this brute-force implementation
-        public FreeChunk GetFreeChunkOnRight(MemoryChunk allocated) {
-            return _chunks.SingleOrDefault(x => x.Offset == allocated.IndexAfter);
+        public void AdjustChunkLength(FreeChunk chunk, int delta) {
+            chunk.Length += delta;
         }
 
         public int GetFreeChunkCount() {

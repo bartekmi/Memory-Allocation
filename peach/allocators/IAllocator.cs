@@ -4,12 +4,7 @@ namespace peach.allocators {
         void AddFreeChunk(FreeChunk chunk);
         FreeChunk FindSmallestFreeChunk(int minSize);
         void RemoveFreeChunk(FreeChunk chunk);
-
-        // Return the free chunk adjecent on the left side, or null if none exists
-        FreeChunk GetFreeChunkOnLeft(MemoryChunk allocated);
-
-        // Return the free chunk adjecent on the right side, or null if none exists
-        FreeChunk GetFreeChunkOnRight(MemoryChunk allocated);
+        void AdjustChunkLength(FreeChunk chunk, int delta);
     }
 
     internal interface IAllocatorUnitTests : IAllocator {

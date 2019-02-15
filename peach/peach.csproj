@@ -45,8 +45,11 @@
   <ItemGroup>
     <Compile Include="allocators\BruteForceAllocator.cs" />
     <Compile Include="allocators\IAllocator.cs" />
+    <Compile Include="allocators\SortedTreeAllocator.cs" />
+    <Compile Include="BaseChunk.cs" />
     <Compile Include="FreeChunk.cs" />
-    <Compile Include="MemoryChunk.cs" />
+    <Compile Include="helpers\Tree.cs" />
+    <Compile Include="AllocatedChunk.cs" />
     <Compile Include="MemoryManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
